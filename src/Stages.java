@@ -29,18 +29,18 @@ public class Stages {
         pane.add(label5, 1, 0);
         Label label6 = new Label("Quantity");
         pane.add(label6, 4, 0);
+
         Button submit = new Button("Submit");
         pane.add(submit, 4, 4);
 
         TextField cola = new TextField();
         pane.add(cola, 1, 1);
         cola.setPrefWidth(20);
-        cola.setPromptText("Liters");
-
+        cola.setText("0");
         TextField rum = new TextField();
         pane.add(rum, 4, 1);
         rum.setPrefWidth(20);
-        rum.setPromptText("Liters");
+        rum.setText("0");
 
         submit.setOnAction(event -> {
             Methods.addBev("Rum", Double.valueOf(rum.getText()));
@@ -122,21 +122,20 @@ public class Stages {
         TextField cola = new TextField();
         pane.add(cola, 1, 1);
         cola.setPrefWidth(20);
-        cola.setPromptText("Liters");
+        cola.setText("0");
 
         TextField rum = new TextField();
         pane.add(rum, 4, 1);
         rum.setPrefWidth(20);
-        rum.setPromptText("Liters");
+        rum.setText("0");
 
         TextField rename = new TextField();
-        rename.setPromptText("Sisesta");
+        rename.setPromptText("Name");
         pane.add(rename, 1, 4);
         rename.setPrefWidth(35);
 
         submit.setOnAction(event -> {
-            Methods.addRec(rename.getText(), Double.valueOf(rum.getText()),
-                    Double.valueOf(cola.getText()));
+            Methods.addRec(rename.getText(), Double.valueOf(rum.getText()), Double.valueOf(cola.getText()));
             window.close();
         });
         pane.setHgap(50);
@@ -169,7 +168,6 @@ public class Stages {
         String[] ing = new String[Save.myRecipes.size()];
         Double[] vol = new Double[Save.myRecipes.size()];
         Double[] glass = new Double[Save.myRecipes.size()];
-
 
         for (int i = 0; i < Save.myRecipes.size(); i++) {
             name[i] = Save.myRecipes.get(i).getName();
